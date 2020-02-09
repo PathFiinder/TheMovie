@@ -45,3 +45,49 @@
                 margin-right: 10px
             &--myList
                 margin-left: 10px
+    &__moviesContainer, .moviesContainer
+        height: 100px
+        width: 100vw
+        display: flex
+        flex-direction: row
+        position: absolute
+        bottom: 20px
+        left: 0
+        z-index: 1
+        .moviesContainer__button
+            height: 20px
+            width: 20px
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            font-size: 24px
+            border: none
+            background-color: transparent
+            color: white
+            cursor: pointer
+            &--back
+                left: 0
+            &--next
+                right: 0
+        .moviesContainer__movieList
+            height: 100%
+            width: calc(100% - 50px)
+            position: absolute
+            top: 0
+            left: 25px
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            overflow: hidden
+            .moviesContainer__singleItem
+                display: none
+                height: 100%
+                flex-basis: calc(25% - 4px)
+                margin: 0 2px
+                overflow: hidden
+                cursor: pointer
+                &--active
+                    display: block
+                .moviesContainer__movieImage
+                    height: 100%
+                    width: 100%
