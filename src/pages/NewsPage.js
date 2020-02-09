@@ -9,8 +9,10 @@ class NewsPage extends Component {
             popularFilms: [],
             activeMovieTitle: "",
             activeMovieDescribe: "",
+            activeMovieBackDrop: "",
             activeMoviePoster: "",
-            firstId: 0
+            firstId: 0,
+            myList: [],
         }
     }
 
@@ -31,12 +33,33 @@ class NewsPage extends Component {
             this.setState({popularFilms: popularFilmsArr, 
                 activeMovieTitle: popularFilmsArr[0].title,
                 activeMovieDescribe: popularFilmsArr[0].overview,
-                activeMoviePoster: popularFilmsArr[0].backdrop_path,
+                activeMovieBackDrop: popularFilmsArr[0].backdrop_path,
+                activeMoviePoster: popularFilmsArr[0].poster_path,
                 firstId: 0})
             })
 
         .catch(err => console.log(err))
     }
+
+
+    handleClickMyList = () => {
+        const myList = this.state.myList;
+        const myListActual = {"title": this.state.activeMovieTitle, "image": this.state.activeMovieBackDrop};
+        
+        if(this.state.myList.length !== 0){
+            let exist = false;
+            this.state.myList.forEach(single => {
+                if(single.title === this.state.activeMovieTitle) exist = true
+            })
+            if(exist !== true) myList.push(myListActual);
+        } else {
+            myList.push(myListActual);
+        }
+        
+        localStorage.setItem("myList", JSON.stringify(myList))
+        this.setState({myList: myList});
+    }
+
 
     handleClickBack = () => {
         if(this.state.firstId < 16){
@@ -47,7 +70,6 @@ class NewsPage extends Component {
         
     }
 
-
     handleClickNext = () => {
         if(this.state.firstId > 0 && this.state.firstId <= 16){
             document.querySelector(`[data-id="${this.state.firstId + 3}"]`).classList.remove('moviesContainer__singleItem--active')
@@ -57,30 +79,30 @@ class NewsPage extends Component {
         
     }
 
+    
+
     render() {
 
         const moviesContainer = this.state.popularFilms.map((single,index) => 
-            <div className={`moviesContainer__singleItem ${index <= 4 ? "moviesContainer__singleItem--active" : ""}`} data-id={index} key={single.id} onClick={() => {this.setState({activeMovieTitle: single.title,activeMoviePoster: single.backdrop_path, activeMovieDescribe: single.overview})}}>
+            <li className={`moviesContainer__singleItem ${index <= 4 ? "moviesContainer__singleItem--active" : ""}`} data-id={index} key={single.id} onClick={() => {this.setState({activeMovieTitle: single.title,activeMovieBackDrop: single.backdrop_path, activeMovieDescribe: single.overview})}}>
                 <img src={`https://image.tmdb.org/t/p/original${single.poster_path}`} alt="Movie img" className="moviesContainer__movieImage"/>
-            </div>
+            </li>
         )
-        
-        
        
         return (  
-            <div className="main__newsPage newsPage" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${this.state.activeMoviePoster}")`}}>
+            <div className="main__newsPage newsPage" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${this.state.activeMovieBackDrop}")`}}>
                 <div className="newsPage__container">
                     <h3 className="newsPage__activeMovieTitle">{this.state.activeMovieTitle}</h3>
                     <h3 className="newsPage__activeMovieDesc">{this.state.activeMovieDescribe}</h3>
                     <button className="newsPage__button newsPage__button--more">More</button>
-                    <button className="newsPage__button newsPage__button--myList">MyList</button>
+                    <button className="newsPage__button newsPage__button--myList" onClick={this.handleClickMyList}>MyList </button>
                 </div>
                 <div className="newsPage__moviesContainer moviesContainer">
-                    <button className="moviesContainer__button moviesContainer__button--back fas fa-angle-left" onClick={this.handleClickBack}></button>
-                        <div className="moviesContainer__movieList">
+                    <button className={`moviesContainer__button moviesContainer__button--back ${this.state.firstId < 16 ? "moviesContainer__button--active" : ""} fas fa-angle-left`} onClick={this.handleClickBack}></button>
+                        <ul className="moviesContainer__movieList">
                             {moviesContainer}
-                        </div>
-                    <button className="moviesContainer__button moviesContainer__button--next fas fa-angle-right" onClick={this.handleClickNext}></button>
+                        </ul>
+                    <button className={`moviesContainer__button moviesContainer__button--next ${this.state.firstId > 0 ? "moviesContainer__button--active" : ""} fas fa-angle-right`} onClick={this.handleClickNext}></button>
                 </div>
             </div>
         );
