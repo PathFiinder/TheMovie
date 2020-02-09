@@ -1,35 +1,24 @@
-import React, {Component } from 'react';
+import React from 'react';
 import {BrowserRouter} from 'react-router-dom'
 import Header from './Header.js'
 import Page from './Page.js'
-import Footer from './Footer'
+import "../sass/app.sass"
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state= {
-      movieList: [],
-      tvList: []
-    }
-  }
-  
-  render() { 
-    return (  
-      <BrowserRouter>
+const App= () => {
+  const apiKey = '6aa21fe13ab8b6d9757477e794498a2c'
+
+  return (  
+    <BrowserRouter>
         <div className="app">
           <header className="header">
-            {<Header />}
+            {<Header apiKey={apiKey}/>}
           </header>
           <main className="main">
-            {<Page />}
+            {<Page apiKey={apiKey}/>}
           </main>
-          <footer className="footer">
-            {<Footer />}
-          </footer>
         </div>
       </BrowserRouter>
-    );
-  }
+  );
 }
  
 export default App;

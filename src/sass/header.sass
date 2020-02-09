@@ -1,0 +1,102 @@
+.header
+    background-color: black
+    height: 80px
+    color: white
+    position: relative
+    &__title
+        font-family: 'Lobster Two', cursive
+        font-weight: bold
+        position: absolute
+        top: 20px
+        left: 10px
+    &__barIcon
+        font-size: 30px
+        background-color: black
+        border: none
+        color: white
+        position: absolute
+        top: 25px
+        right: 10px
+        cursor: pointer
+        @media (min-width: 568px)
+            display: none
+    &__nav, .nav
+        height: calc(100vh - 80px)
+        position: absolute
+        top: 80px
+        right: 0
+        width: 100%
+        background-color: black
+        display: none
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        @media (min-width: 568px)
+            display: flex
+            transition: none
+            height: 40px
+            overflow: hidden
+            top: 50%
+            right: 0
+            transform: translateY(-50%)
+            flex-direction: row
+            width: 400px
+        &--active
+            display: flex
+            @media (min-width: 568px)
+                
+                transform: translateY(-50%)
+        .nav__list
+            list-style-type: none
+            width: 100%
+            @media (min-width: 568px)
+                display: flex
+                flex-direction: row
+                height: 100%
+                overflow: hidden
+            .nav__item
+                text-align: center
+                color: rgba(255,255,255,0.4)
+                width: 220px
+                margin: 0 auto
+                @media (min-width: 568px)
+                    flex-basis: 25%
+                    overflow: hidden
+                .nav__link
+                    text-decoration: none
+                    color: rgba(255,255,255,0.4)
+                    font-weight: normal
+                    width: 100%
+                    @media (min-width: 568px)
+                        display: inline-block
+                        height: 100%
+                    &--active
+                        color: white
+                    .nav__linkContainer
+                        width: 100%
+                        height: 100%
+                        display: flex
+                        flex-direction: row
+                        position: relative
+                        .nav__icon
+                            font-size: 28px
+                            position: absolute
+                            top: 50%
+                            left: 5px
+                            transform: translateY(-50%)
+                            width: 31px
+                            @media (min-width: 568px)
+                                font-size: 18px
+                                width: 24px
+                        .nav__linkName
+                            font-size: 42px
+                            margin-left: 40px
+                            @media (min-width: 568px)
+                                font-size: 16px
+                                line-height: 40px
+                                margin-left: 30px
+                            
+
+                        
+
+
