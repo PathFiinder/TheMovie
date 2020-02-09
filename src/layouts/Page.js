@@ -1,8 +1,25 @@
 import React from 'react';  
+import { Route, Switch } from 'react-router-dom';
 
-const Page = () => {
+import NewsPage from '../pages/NewsPage'
+import PopularPage from '../pages/PopularPage'
+import SearchPage from '../pages/SearchPage'
+import MyListPage from '../pages/MyListPage'
+import ErrorPage from '../pages/ErrorPage'
+
+
+const Page = (props) => {
     return ( 
-        <h2>Page</h2>
+    
+        <>
+        <Switch>
+            <Route path="/" exact component={() => <NewsPage apiKey={props.apiKey}/>} />
+            <Route path="/popular" component={() => <PopularPage apiKey={props.apiKey}/>} />
+            <Route path="/search"  component={() => <SearchPage apiKey={props.apiKey}/>} />
+            <Route path="/myList"  component={() => <MyListPage apiKey={props.apiKey}/>} />
+            <Route component={ErrorPage} />
+        </Switch>
+        </>
      );
 }
  

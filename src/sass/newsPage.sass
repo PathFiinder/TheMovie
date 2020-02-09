@@ -1,0 +1,47 @@
+.main__newsPage, .newsPage
+    background-color: black
+    height: 100%
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    overflow: hidden
+    color: white
+    position: relative
+    &:after
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        background-color: rgba(0,0,0,0.6)
+        content: ""
+    &__container
+        height: 280px
+        overflow: hidden
+        position: absolute
+        top: 50px
+        left: 50%
+        transform: translateX(-50%)
+        width: 90%
+        z-index: 1
+        text-align: center
+        .newsPage__activeMovieTitle
+            font-size: 30px
+            margin-bottom: 5px
+        .newsPage__activeMovieDesc
+            font-size: 12px
+            width: 90%
+            font-weight: normal
+        .newsPage__button
+            border: 1px solid black
+            margin-top: 10px
+            background-color: rgba(51,51,51,0.8)
+            color: white
+            height: 30px
+            width: 100px
+            font-size: 18px
+            border-radius: 5px
+            &--more
+                margin-right: 10px
+            &--myList
+                margin-left: 10px

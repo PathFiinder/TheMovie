@@ -11,7 +11,7 @@ const App= () => {
     <BrowserRouter>
         <div className="app">
           <header className="header">
-            {<Header apiKey={apiKey}/>}
+            {<Header/>}
           </header>
           <main className="main">
             {<Page apiKey={apiKey}/>}
