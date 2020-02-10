@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import "../sass/newsPage.sass"
 
@@ -11,8 +12,11 @@ class NewsPage extends Component {
             activeMovieDescribe: "",
             activeMovieBackDrop: "",
             activeMoviePoster: "",
+            activeMovieId: 0,
+            activeMovieVoteAverage: 0,
+            activeMovieReleaseDate: "",
             firstId: 0,
-            myList: [],
+            myList: JSON.parse(localStorage.getItem("myList")) || []
         }
     }
 
@@ -35,30 +39,46 @@ class NewsPage extends Component {
                 activeMovieDescribe: popularFilmsArr[0].overview,
                 activeMovieBackDrop: popularFilmsArr[0].backdrop_path,
                 activeMoviePoster: popularFilmsArr[0].poster_path,
+                activeMovieId: popularFilmsArr[0].id,
+                activeMovieReleaseDate: popularFilmsArr[0].release_date,
+                activeMovieVoteAverage: popularFilmsArr[0].vote_average,
                 firstId: 0})
             })
-
         .catch(err => console.log(err))
     }
 
 
     handleClickMyList = () => {
-        const myList = this.state.myList;
         const myListActual = {"title": this.state.activeMovieTitle, "image": this.state.activeMovieBackDrop};
-        
-        if(this.state.myList.length !== 0){
+        const myList = this.state.myList;
+
+        if(localStorage.getItem("myList") !== null){
             let exist = false;
-            this.state.myList.forEach(single => {
-                if(single.title === this.state.activeMovieTitle) exist = true
+            let id = 0
+            
+            myList.forEach((single,index) => {
+                if(single.title === this.state.activeMovieTitle) {
+                    exist = true;
+                    id = index;
+                } 
             })
-            if(exist !== true) myList.push(myListActual);
+           
+            if(exist === true) myList.splice(id,1)
+            else myList.push(myListActual)
+
+            localStorage.setItem("myList",JSON.stringify(myList))
+            this.setState({myList: myList})
+
         } else {
-            myList.push(myListActual);
+            myList.push(myListActual)
+            localStorage.setItem("myList", JSON.stringify(myList))
+            this.setState({myList: myList})
         }
         
-        localStorage.setItem("myList", JSON.stringify(myList))
-        this.setState({myList: myList});
+
     }
+
+    
 
 
     handleClickBack = () => {
@@ -79,23 +99,24 @@ class NewsPage extends Component {
         
     }
 
-    
 
     render() {
 
         const moviesContainer = this.state.popularFilms.map((single,index) => 
-            <li className={`moviesContainer__singleItem ${index <= 4 ? "moviesContainer__singleItem--active" : ""}`} data-id={index} key={single.id} onClick={() => {this.setState({activeMovieTitle: single.title,activeMovieBackDrop: single.backdrop_path, activeMovieDescribe: single.overview})}}>
+            <li className={`moviesContainer__singleItem ${index <= 4 ? "moviesContainer__singleItem--active" : ""}`} data-id={index} key={single.id} onClick={() => {this.setState({activeMovieTitle: single.title,activeMovieBackDrop: single.backdrop_path, activeMovieDescribe: single.overview, activeMovieId: single.id, activeMoviePoster: single.poster_path,activeMovieReleaseDate: single.release_date, activeMovieVoteAverage: single.vote_average});}}>
                 <img src={`https://image.tmdb.org/t/p/original${single.poster_path}`} alt="Movie img" className="moviesContainer__movieImage"/>
             </li>
         )
+
+        const navLinkPropsPass = {"pathname": `/${this.state.activeMovieTitle}`, aboutProps: {"movieId": this.state.activeMovieId, "apiKey": this.props.apiKey, "posterPath": this.state.activeMoviePoster, "releaseDate": this.state.activeMovieReleaseDate, "voteAverage": this.state.activeMovieVoteAverage, "movieTitle": this.state.activeMovieTitle}}
        
         return (  
             <div className="main__newsPage newsPage" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${this.state.activeMovieBackDrop}")`}}>
                 <div className="newsPage__container">
                     <h3 className="newsPage__activeMovieTitle">{this.state.activeMovieTitle}</h3>
                     <h3 className="newsPage__activeMovieDesc">{this.state.activeMovieDescribe}</h3>
-                    <button className="newsPage__button newsPage__button--more">More</button>
-                    <button className="newsPage__button newsPage__button--myList" onClick={this.handleClickMyList}>MyList </button>
+                    <button className="newsPage__button newsPage__button--more"><NavLink to={navLinkPropsPass} className="newsPage__button--link">More</NavLink></button>
+                    <button className="newsPage__button newsPage__button--myList" onClick={this.handleClickMyList}>MyList +</button>
                 </div>
                 <div className="newsPage__moviesContainer moviesContainer">
                     <button className={`moviesContainer__button moviesContainer__button--back ${this.state.firstId < 16 ? "moviesContainer__button--active" : ""} fas fa-angle-left`} onClick={this.handleClickBack}></button>
