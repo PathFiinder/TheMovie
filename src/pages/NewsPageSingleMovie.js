@@ -12,6 +12,7 @@ const NewsPageSingleMovie = ({location}) => {
                          posterPath={props.posterPath}
                          releaseDate={props.releaseDate} 
                          voteAverage={props.voteAverage}
+                         movieDesc={props.movieDesc}
             />
         </> 
     );

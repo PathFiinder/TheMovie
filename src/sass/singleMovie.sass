@@ -1,0 +1,109 @@
+.singleMovie
+    height: calc(100vh - 80px)
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    overflow: hidden
+    position: relative
+    &__back
+        height: 30px
+        width: 90px
+        font-size: 24px
+        cursor: pointer
+        overflow: hidden
+        border: none
+        background-color: transparent
+        margin: 2px 0 0 10px
+        &--icon
+            color: white
+        &--text
+            color: white
+            text-decoration: none
+    &__container
+        margin: 20px auto 0 auto 
+        width: 90%
+        border: 1px solid white
+        background-color: rgba(0,0,0,0.5)
+        display: flex
+        flex-direction: row
+        color: white
+        .singleMovie__singleItem
+            flex-basis: 50%
+            position: relative
+            text-align: center
+            &--first
+                border-right: 2px solid white
+            .singleMovie__icon
+                position: absolute
+                top: 50%
+                left: 15px
+                transform: translateY(-50%)
+                font-size: 24px
+                color: gold
+            .singleMovie__voteAverage
+                position: absolute
+                top: 50%
+                left: 50px
+                transform: translateY(-50%)
+            .singleMovie__releaseDate
+                font-weight: normal
+                font-size: 18px
+                &--bold
+                    font-weight: bold
+    .singleMovie__title
+        font-size: 24px
+        text-align: center
+        color: white
+        font-weight: bold
+        margin: 10px auto 0 auto
+        width: 90%
+    .singleMovie__describe
+        margin: 10px auto 0 auto
+        width: 90%
+        background-color: rgba(0,0,0,0.5)
+        color: white
+        padding: 10px
+        text-align: center
+        font-size: 14px
+    .singleMovie__buttonWatch
+        border: none
+        text-align: center
+        margin: 10px auto 0 auto
+        background-color: rgba(51,51,51,0.8)
+        color: white
+        height: 30px
+        width: 150px
+        font-size: 18px
+        border-radius: 5px
+        cursor: pointer
+        display: block
+    .singleMovie__watchContainer
+        display: none
+        height: calc(100vh - 80px)
+        width: 100%
+        background-color: rgba(0,0,0,0.9)
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 1
+        &--active
+            display: block
+        .singleMovie__iframe
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            height: auto
+            width: 95%
+        .singleMovie__iframeClose
+            height: 40px
+            width: 40px
+            color: white
+            border: none
+            background-color: transparent
+            font-size: 30px
+            position: absolute
+            top: 10px
+            right: 10px
+            cursor: pointer
+            
