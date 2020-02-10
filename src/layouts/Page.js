@@ -15,7 +15,7 @@ const Page = (props) => {
         <>
         <Switch>
             <Route path="/" exact component={() => <NewsPage apiKey={props.apiKey}/>} />
-            <Route path="/:name" component={NewsPageSingleMovie}/>
+            <Route path="/news/:name" component={NewsPageSingleMovie}/>
             <Route path="/popular" component={() => <PopularPage apiKey={props.apiKey}/>} />
             <Route path="/search"  component={() => <SearchPage apiKey={props.apiKey}/>} />
             <Route path="/myList"  component={() => <MyListPage apiKey={props.apiKey}/>} />

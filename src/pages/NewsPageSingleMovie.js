@@ -3,8 +3,9 @@ import React from 'react';
 import SingleMovie from "../components/SingleMovie"
 
 const NewsPageSingleMovie = ({location}) => {
-    const props = location.aboutProps
+    const props = location.aboutProps !== undefined ? location.aboutProps : ""
     return ( 
+        props !== undefined ? 
         <>
             <SingleMovie title={props.movieTitle} 
                          apiKey={props.apiKey} 
@@ -15,6 +16,7 @@ const NewsPageSingleMovie = ({location}) => {
                          movieDesc={props.movieDesc}
             />
         </> 
+        : ""
     );
 }
  

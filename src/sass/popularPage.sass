@@ -1,0 +1,67 @@
+.main__popularPage, .popularPage
+    height: calc(100vh - 80px)
+    background-color: #0B161A
+    &__title
+        margin: 0 auto
+        text-align: center
+        padding-top: 20px
+        color: white
+        font-size: 24px
+    .popularPage__listContainer,.popularPage__listContainer .list
+        width: 90%
+        border: 1px solid white
+        height: calc(100vh - 80px - 50px - 25px)
+        margin: 20px auto 5px auto
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        overflow: hidden
+        .list__singleItem
+            flex-basis: 100%
+            height: 100%
+            position: relative
+            .list__itemTitle
+                text-align: center
+                margin-top: 40px
+                font-weight: bold
+                color: white
+                font-size: 24px
+            .list__itemIndex
+                position: absolute
+                top: 20px
+                left: 20px
+                color: white
+                font-weight: bold
+                font-size: 18px
+            .list__itemImageContainer
+                height: 240px
+                width: 240px
+                overflow: hidden
+                position: relative
+                margin: 20px auto 0 auto
+                background-color: #1B2124
+                border: 1px solid black
+                border-radius: 15px
+                .list__itemSingleImage
+                    height: 200px
+                    width: 200px
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)
+            .list__button
+                border: none
+                margin-top: 10px
+                background-color: rgba(51,51,51,0.8)
+                color: white
+                height: 30px
+                width: 100px
+                font-size: 18px
+                border-radius: 5px
+                cursor: pointer
+                display: block
+                margin: 10px auto
+                &--link
+                    text-decoration: none
+                    color: white
+                        
