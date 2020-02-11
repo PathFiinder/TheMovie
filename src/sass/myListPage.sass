@@ -1,0 +1,44 @@
+.main__myListPage, .myListPage
+    min-height: calc(100vh - 80px)
+    background-color: #0B161A
+    color: white
+    text-align: center
+    &__title
+        padding-top: 20px
+    &__noItems
+        margin-top: 20px
+    &__listContainer, .listContainer
+        min-height: calc(100vh - 80px - 20px - 50px)
+        width: 90%
+        margin: 10px auto 0 auto
+        list-style-type: none
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        .listContainer__singleItem
+            min-height: 280px
+            width: 220px
+            background-color: green
+            margin: 5px auto 
+            background-color: #1B2124
+            border: 1px solid black
+            border-radius: 15px
+            .listContainer__posterImage
+                margin: 10px auto 5px auto
+                height: 200px
+                width: 180px
+            .listContainer__movieTitle
+                font-size: 20px
+                width: 90%
+                margin: 0 auto
+            .listContainer__button
+                height: 30px
+                width: 30px
+                font-size: 24px
+                margin: 10px auto
+                border: none
+                color: red
+                cursor: pointer
+                background-color: transparent
+               

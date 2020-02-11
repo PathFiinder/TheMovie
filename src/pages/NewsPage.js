@@ -49,7 +49,7 @@ class NewsPage extends Component {
 
 
     handleClickMyList = () => {
-        const myListActual = {"title": this.state.activeMovieTitle, "image": this.state.activeMovieBackDrop};
+        const myListActual = {"title": this.state.activeMovieTitle, "image": this.state.activeMoviePoster};
         const myList = this.state.myList;
 
         if(localStorage.getItem("myList") !== null){
