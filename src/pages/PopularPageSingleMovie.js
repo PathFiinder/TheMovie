@@ -2,7 +2,7 @@ import React from 'react';
 
 import SingleMovie from "../components/SingleMovie"
 
-const NewsPageSingleMovie = ({location}) => {
+const PopularPageSingleMovie = ({location}) => {
     const props = location.aboutProps !== undefined ? location.aboutProps : ""
     return ( 
         props !== undefined ? 
@@ -21,4 +21,4 @@ const NewsPageSingleMovie = ({location}) => {
     );
 }
  
-export default NewsPageSingleMovie;
+export default PopularPageSingleMovie;

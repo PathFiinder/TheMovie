@@ -26,7 +26,7 @@ class SingleMovie extends Component {
     render(){
         return ( 
             <div className="singleMovie" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${this.props.posterPath}")`}}>
-                <button className="singleMovie__back"><Link to="/" className="singleMovie__back--text"><span className="singleMovie__back--icon fas fa-arrow-left"></span> Back</Link></button>
+                <button className="singleMovie__back"><Link to={`${this.props.prevPath}`} className="singleMovie__back--text"><span className="singleMovie__back--icon fas fa-arrow-left"></span> Back</Link></button>
                 <div className="singleMovie__container">
                     <div className="singleMovie__singleItem singleMovie__singleItem--first">
                         <i className="singleMovie__icon fas fa-star"></i>

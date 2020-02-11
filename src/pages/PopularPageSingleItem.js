@@ -2,16 +2,17 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const PopularPageSingleItem = (props) => {
-    const navLinkPropsPass = {"pathname": `news/${props.id}`, 
+    const navLinkPropsPass = {"pathname": `popular/${props.title}`, 
                               aboutProps: {"movieId": props.id, 
                                            "apiKey": props.apiKey, 
                                            "posterPath": props.posterPath, 
                                            "releaseDate": props.releaseDate, 
                                            "voteAverage": props.voteAverage, 
                                            "movieTitle": props.title, 
-                                           "movieDesc": props.movieDesc}}
+                                           "movieDesc": props.movieDesc,
+                                           "prevPath": "/popular"}}
     return ( 
-        <div className="list__singleItem">
+        <div className={`list__singleItem ${props.index === 1 ? "list__singleItem--active" : ""}`} data-id={props.index}>
             <span className="list__itemIndex">{props.index}</span>
             <h3 className="list__itemTitle">{props.title}</h3>
             <div className="list__itemImageContainer">

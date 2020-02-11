@@ -108,7 +108,7 @@ class NewsPage extends Component {
             </li>
         )
 
-        const navLinkPropsPass = {"pathname": `news/${this.state.activeMovieTitle}`, aboutProps: {"movieId": this.state.activeMovieId, "apiKey": this.props.apiKey, "posterPath": this.state.activeMoviePoster, "releaseDate": this.state.activeMovieReleaseDate, "voteAverage": this.state.activeMovieVoteAverage, "movieTitle": this.state.activeMovieTitle, "movieDesc": this.state.activeMovieDescribe}}
+        const navLinkPropsPass = {"pathname": `news/${this.state.activeMovieTitle}`, aboutProps: {"movieId": this.state.activeMovieId, "apiKey": this.props.apiKey, "posterPath": this.state.activeMoviePoster, "releaseDate": this.state.activeMovieReleaseDate, "voteAverage": this.state.activeMovieVoteAverage, "movieTitle": this.state.activeMovieTitle, "movieDesc": this.state.activeMovieDescribe, "prevPath": "/"}}
        
         return (  
             <div className="main__newsPage newsPage" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${this.state.activeMovieBackDrop}")`}}>
