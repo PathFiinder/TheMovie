@@ -1,0 +1,85 @@
+.main__searchPage, .searchPage
+    min-height: calc(100vh - 80px)
+    background-color: #0B161A
+    padding-top: 10px
+    padding-bottom: 10px
+    &__container
+        height: 100px
+        width: 60%
+        margin: 10px auto
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        .searchPage__buttonsContainer
+            flex-basis: 40%
+            width: 100px
+            margin: 10px auto
+            display: flex
+            flex-direction: row
+            border: 2px solid white
+            .searchPage__button
+                flex-basis: 50%
+                border: none
+                background-color: transparent
+                font-size: 14px
+                color: white
+                transition: background-color 0.05s linear, background-color 0.05s linear
+                &--active
+                    background-color: white
+                    color: black
+        .searchPage__searchContainer
+            flex-grow: 1
+            position: relative
+            width: 100%
+            .searchPage__searchInput
+                position: absolute
+                top: 50%
+                left: 10px
+                transform: translateY(-50%)
+                border: none
+                border-bottom: 1px solid rgba(255,255,255,0.4)
+                background-color: transparent
+                color: white
+                transition: border-bottom 0.05s linear
+                font-size: 15px
+                width: 140px
+                letter-spacing: 1px
+                &:focus
+                    border-bottom: 1px solid rgba(255,255,255,1)  
+            .searchPage__searchButton
+                position: absolute
+                top: 50%
+                right: 5px
+                transform: translateY(-50%)
+                height: 25px
+                width: 25px
+                font-size: 18px
+                border: none
+                color: white
+                background-color: transparent
+    &__resultsList, .resultsList
+        margin: 10px auto
+        width: 90%
+        color: white
+        display: flex
+        flex-direction: column
+        list-style-type: none
+        .resultsList__singleItem
+            min-height: 180px
+            width: 200px
+            margin: 10px auto
+            text-align: center
+            background-color: #1B2124
+            border: 1px solid black
+            border-radius: 15px
+            .resultsList__image
+                height: 130px
+                width: 100px
+                margin-top: 10px
+            .resultsList__title
+                font-size: 14px
+                width: 90%
+                font-weight: normal
+                margin: 5px auto
+                
