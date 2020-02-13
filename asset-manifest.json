@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/TheMovie/static/css/main.03874dcc.chunk.css",
+    "main.js": "/TheMovie/static/js/main.2fa672af.chunk.js",
+    "main.js.map": "/TheMovie/static/js/main.2fa672af.chunk.js.map",
+    "runtime-main.js": "/TheMovie/static/js/runtime-main.2e280fcb.js",
+    "runtime-main.js.map": "/TheMovie/static/js/runtime-main.2e280fcb.js.map",
+    "static/js/2.9206302b.chunk.js": "/TheMovie/static/js/2.9206302b.chunk.js",
+    "static/js/2.9206302b.chunk.js.map": "/TheMovie/static/js/2.9206302b.chunk.js.map",
+    "index.html": "/TheMovie/index.html",
+    "precache-manifest.772c86fe86cb40b80f9e4cfbb3a4f325.js": "/TheMovie/precache-manifest.772c86fe86cb40b80f9e4cfbb3a4f325.js",
+    "service-worker.js": "/TheMovie/service-worker.js",
+    "static/css/main.03874dcc.chunk.css.map": "/TheMovie/static/css/main.03874dcc.chunk.css.map",
+    "static/js/2.9206302b.chunk.js.LICENSE.txt": "/TheMovie/static/js/2.9206302b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2e280fcb.js",
+    "static/js/2.9206302b.chunk.js",
+    "static/css/main.03874dcc.chunk.css",
+    "static/js/main.2fa672af.chunk.js"
+  ]
+}
