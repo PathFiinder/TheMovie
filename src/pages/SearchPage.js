@@ -22,6 +22,8 @@ class SearchPage extends Component{
         .then(resp => resp.json())
         .then(data => {
             const resultsArr = [];
+            document.querySelector('.searchPage__noResult').classList.remove('searchPage__noResult--active');
+            if(data.results.length === 0) document.querySelector('.searchPage__noResult').classList.add('searchPage__noResult--active')
             data.results.forEach(single => resultsArr.push(single));
             this.setState({results: resultsArr});
         })
