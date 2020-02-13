@@ -8,7 +8,7 @@ const App= () => {
   const apiKey = '6aa21fe13ab8b6d9757477e794498a2c'
 
   return (  
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="app">
           <header className="header">
             {<Header/>}
