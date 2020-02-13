@@ -16,8 +16,7 @@ class NewsPage extends Component {
             activeMovieVoteAverage: 0,
             activeMovieReleaseDate: "",
             firstId: 0,
-            myList: JSON.parse(localStorage.getItem("myList")) || [],
-            existInMyList: false
+            myList: JSON.parse(localStorage.getItem("myList")) || []
         }
     }
 
@@ -81,16 +80,20 @@ class NewsPage extends Component {
     }
 
     checkIfExistInMyList = () => {
-        const myList = JSON.parse(localStorage.getItem("myList")) || [];
+        const myList = this.state.myList
         let value = false;
         if(myList.length !== 0){
-            myList.forEach(single => {
-                if(single.title === this.state.activeMovieTitle) this.setState({existInMyList: true})
-                else this.setState({existInMyList: false})
-            })
+            for(let i=0;i<myList.length;i++){
+                if(myList[i].title === this.state.activeMovieTitle) {
+                    value = true;
+                    break;
+                }
+                else value = false
+            }
         } else {
-            this.setState({existInMyList: false})
+            value = false;
         }
+        return value
     }
 
 
@@ -123,6 +126,8 @@ class NewsPage extends Component {
 
         const navLinkPropsPass = {"pathname": `news/${this.state.activeMovieTitle}`, aboutProps: {"movieId": this.state.activeMovieId, "apiKey": this.props.apiKey, "posterPath": this.state.activeMoviePoster, "backPath":this.state.activeMovieBackDrop ,"releaseDate": this.state.activeMovieReleaseDate, "voteAverage": this.state.activeMovieVoteAverage, "movieTitle": this.state.activeMovieTitle, "movieDesc": this.state.activeMovieDescribe, "prevPath": "/"}}
         
+        const ifExist = this.checkIfExistInMyList();
+
         return (  
             <div className="main__newsPage newsPage" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${this.state.activeMovieBackDrop}")`}}>
                 
@@ -130,7 +135,7 @@ class NewsPage extends Component {
                         <h3 className="newsPage__activeMovieTitle">{this.state.activeMovieTitle}</h3>
                         <h3 className="newsPage__activeMovieDesc">{this.state.activeMovieDescribe}</h3>
                         <button className="newsPage__button newsPage__button--more"><NavLink to={navLinkPropsPass} className="newsPage__button--link">More</NavLink></button>
-                        <button className="newsPage__button newsPage__button--myList" onClick={this.handleClickMyList}>MyList +</button>
+                        <button className="newsPage__button newsPage__button--myList" onClick={this.handleClickMyList}>MyList {ifExist ? "-" : "+"}</button>
                     </div>
                     <div className="newsPage__moviesContainer moviesContainer">
                         <button className={`moviesContainer__button moviesContainer__button--back ${this.state.firstId < 16 ? "moviesContainer__button--active" : ""} fas fa-angle-left`} onClick={this.handleClickBack}></button>
