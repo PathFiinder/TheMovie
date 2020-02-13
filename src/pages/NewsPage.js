@@ -16,7 +16,8 @@ class NewsPage extends Component {
             activeMovieVoteAverage: 0,
             activeMovieReleaseDate: "",
             firstId: 0,
-            myList: JSON.parse(localStorage.getItem("myList")) || []
+            myList: JSON.parse(localStorage.getItem("myList")) || [],
+            existInMyList: false
         }
     }
 
@@ -44,6 +45,7 @@ class NewsPage extends Component {
                 activeMovieVoteAverage: popularFilmsArr[0].vote_average,
                 firstId: 0})
             })
+            
         .catch(err => console.log(err))
     }
 
@@ -78,7 +80,18 @@ class NewsPage extends Component {
 
     }
 
-    
+    checkIfExistInMyList = () => {
+        const myList = JSON.parse(localStorage.getItem("myList")) || [];
+        let value = false;
+        if(myList.length !== 0){
+            myList.forEach(single => {
+                if(single.title === this.state.activeMovieTitle) this.setState({existInMyList: true})
+                else this.setState({existInMyList: false})
+            })
+        } else {
+            this.setState({existInMyList: false})
+        }
+    }
 
 
     handleClickBack = () => {
@@ -108,23 +121,25 @@ class NewsPage extends Component {
             </li>
         )
 
-        const navLinkPropsPass = {"pathname": `news/${this.state.activeMovieTitle}`, aboutProps: {"movieId": this.state.activeMovieId, "apiKey": this.props.apiKey, "posterPath": this.state.activeMoviePoster, "releaseDate": this.state.activeMovieReleaseDate, "voteAverage": this.state.activeMovieVoteAverage, "movieTitle": this.state.activeMovieTitle, "movieDesc": this.state.activeMovieDescribe, "prevPath": "/"}}
-       
+        const navLinkPropsPass = {"pathname": `news/${this.state.activeMovieTitle}`, aboutProps: {"movieId": this.state.activeMovieId, "apiKey": this.props.apiKey, "posterPath": this.state.activeMoviePoster, "backPath":this.state.activeMovieBackDrop ,"releaseDate": this.state.activeMovieReleaseDate, "voteAverage": this.state.activeMovieVoteAverage, "movieTitle": this.state.activeMovieTitle, "movieDesc": this.state.activeMovieDescribe, "prevPath": "/"}}
+        
         return (  
             <div className="main__newsPage newsPage" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${this.state.activeMovieBackDrop}")`}}>
-                <div className="newsPage__container">
-                    <h3 className="newsPage__activeMovieTitle">{this.state.activeMovieTitle}</h3>
-                    <h3 className="newsPage__activeMovieDesc">{this.state.activeMovieDescribe}</h3>
-                    <button className="newsPage__button newsPage__button--more"><NavLink to={navLinkPropsPass} className="newsPage__button--link">More</NavLink></button>
-                    <button className="newsPage__button newsPage__button--myList" onClick={this.handleClickMyList}>MyList +</button>
-                </div>
-                <div className="newsPage__moviesContainer moviesContainer">
-                    <button className={`moviesContainer__button moviesContainer__button--back ${this.state.firstId < 16 ? "moviesContainer__button--active" : ""} fas fa-angle-left`} onClick={this.handleClickBack}></button>
-                        <ul className="moviesContainer__movieList">
-                            {moviesContainer}
-                        </ul>
-                    <button className={`moviesContainer__button moviesContainer__button--next ${this.state.firstId > 0 ? "moviesContainer__button--active" : ""} fas fa-angle-right`} onClick={this.handleClickNext}></button>
-                </div>
+                
+                    <div className="newsPage__container">
+                        <h3 className="newsPage__activeMovieTitle">{this.state.activeMovieTitle}</h3>
+                        <h3 className="newsPage__activeMovieDesc">{this.state.activeMovieDescribe}</h3>
+                        <button className="newsPage__button newsPage__button--more"><NavLink to={navLinkPropsPass} className="newsPage__button--link">More</NavLink></button>
+                        <button className="newsPage__button newsPage__button--myList" onClick={this.handleClickMyList}>MyList +</button>
+                    </div>
+                    <div className="newsPage__moviesContainer moviesContainer">
+                        <button className={`moviesContainer__button moviesContainer__button--back ${this.state.firstId < 16 ? "moviesContainer__button--active" : ""} fas fa-angle-left`} onClick={this.handleClickBack}></button>
+                            <ul className="moviesContainer__movieList">
+                                {moviesContainer}
+                            </ul>
+                        <button className={`moviesContainer__button moviesContainer__button--next ${this.state.firstId > 0 ? "moviesContainer__button--active" : ""} fas fa-angle-right`} onClick={this.handleClickNext}></button>
+                    </div>
+               
             </div>
         );
         }

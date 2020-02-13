@@ -4,9 +4,9 @@
     background-position: center
     background-repeat: no-repeat
     background-size: cover
-    overflow: hidden
     color: white
     position: relative
+    padding-top: 20px
     &:after
         position: absolute
         top: 0
@@ -16,23 +16,31 @@
         background-color: rgba(0,0,0,0.6)
         content: ""
     &__container
-        height: 280px
-        overflow: hidden
-        position: absolute
-        top: 50px
-        left: 50%
-        transform: translateX(-50%)
         width: 90%
-        z-index: 1
         text-align: center
+        margin: 0 auto
+        position: relative
+        z-index: 1
+        @media (min-height: 1024px)
+            margin-top: 50px
+        @media (min-width: 1200px)
+            margin-top: 120px
         .newsPage__activeMovieTitle
             font-size: 30px
             margin-bottom: 5px
+            @media (min-width: 768px)
+                font-size: 40px
+            @media (min-width: 1024px)
+                font-size: 50px
         .newsPage__activeMovieDesc
             font-size: 12px
             width: 90%
             font-weight: normal
             margin: 0 auto
+            @media (min-width:768px)
+                font-size: 18px
+            @media (min-width: 1024px)
+                font-size: 24px
         .newsPage__button
             border: none
             margin-top: 10px
@@ -44,6 +52,9 @@
             border-radius: 5px
             cursor: pointer
             display: inline-block
+            @media (min-width: 1200px)
+                font-size: 24px
+                width: 120px
             &--more
                 margin-top: -10px
                 margin-right: 10px
@@ -57,10 +68,30 @@
         width: 100vw
         display: flex
         flex-direction: row
+        margin: 20px auto 0 auto
         position: absolute
         bottom: 20px
-        left: 0
+        left: 50%
+        transform: translateX(-50%)
         z-index: 1
+        @media (min-width: 568px)
+            position: relative
+            left: 0
+            transform: none
+            width: 90vw
+            margin-top: 50px
+        @media (min-width: 667px)
+            width: 80vw
+        @media (min-height: 1024px), (min-width: 1024px)
+            position: absolute
+            left: 50%
+            bottom: 20px
+            transform: translateX(-50%)
+            height: 200px
+        @media (min-width: 1200px)
+            width: 60%
+        @media (min-width: 1600px)
+            width: 50%
         .moviesContainer__button
             height: 20px
             width: 20px
@@ -71,6 +102,10 @@
             border: none
             background-color: transparent
             color: rgba(255,255,255,0.5)
+            @media (min-width: 768px)
+                height: 30px
+                width: 24px
+                font-size: 30px
             &--back
                 left: 0
             &--next

@@ -1,17 +1,18 @@
 .main__popularPage, .popularPage
     min-height: calc(100vh - 80px)
+    height: auto
     background-color: #0B161A
+    padding-bottom: 20px
+    position: relative
     &__title
         margin: 0 auto
         text-align: center
         padding-top: 20px
         color: white
         font-size: 24px
-    .popularPage__listContainer,.popularPage__listContainer .list
+    &__listContainer,.popularPage__listContainer .list
         width: 90%
-        border: 1px solid white
-        height: calc(100vh - 80px - 50px - 25px - 25px)
-        margin: 20px auto 5px auto
+        margin: 20px auto 12px auto
         display: flex
         flex-direction: row
         flex-wrap: wrap
@@ -21,6 +22,13 @@
             height: 100%
             position: relative
             display: none
+            @media (min-width: 768px)
+               display: block
+               flex-basis: 50%
+            @media (min-width: 1024px)
+               flex-basis: calc(100% / 3)
+            @media (min-width: 1600px)
+               flex-basis: calc(100% / 4)
             &--active
                 display: block
             .list__itemTitle
@@ -29,6 +37,10 @@
                 font-weight: bold
                 color: white
                 font-size: 24px
+                @media (min-width: 1024px)
+                    margin-top: 50px
+                    font-size: 20px
+                    
             .list__itemIndex
                 position: absolute
                 top: 20px
@@ -67,9 +79,9 @@
                 &--link
                     text-decoration: none
                     color: white
-    .popularPage__dotList, .dotList
+    &__dotList, .dotList
         position: absolute
-        bottom: 5px
+        bottom: 10px
         left: 50%
         transform: translateX(-50%)
         width: 90%
@@ -77,6 +89,12 @@
         flex-direction: row
         overflow: hidden
         height: 20px
+        @media (min-width: 568px)
+            width: 350px
+        @media (min-width: 768px)
+            display: none   
+        @media (min-height: 812px)
+            bottom: 50px    
         .dotList__singleItem
             flex-basis: calc(100% / 20)
             overflow: hidden

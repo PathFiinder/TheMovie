@@ -36,7 +36,7 @@ class PopularPage extends Component{
 
     render(){
 
-        const popularPageSingleItem = this.state.popularMovieList.map((single,index) => <PopularPageSingleItem key={single.id} title={single.title} index={index+1} apiKey={this.props.apiKey} id={single.id} posterPath={single.poster_path} releaseDate={single.release_date} voteAverage={single.vote_average} movieDesc={single.overview}/>)
+        const popularPageSingleItem = this.state.popularMovieList.map((single,index) => <PopularPageSingleItem key={single.id} title={single.title} index={index+1} apiKey={this.props.apiKey} id={single.id} posterPath={single.poster_path} backPath={single.backdrop_path} releaseDate={single.release_date} voteAverage={single.vote_average} movieDesc={single.overview}/>)
         const dotList = this.state.popularMovieList.map((single,id) => <li key={id+1} className="dotList__singleItem"><button className={`dotList__dotButton ${id+1 === 1 ? "dotList__dotButton--active" : ""} far fa-circle`} data-dotid={id+1} onClick={this.handleClickDot}></button></li>)
         
         return (  

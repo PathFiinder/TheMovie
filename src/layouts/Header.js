@@ -33,7 +33,7 @@ const Header = () => {
 
     return (  
         <>
-        <h1 className="header__title">TheMovie</h1>
+        <NavLink to="/"><h1 className="header__title">TheMovie</h1></NavLink>
         <button className="header__barIcon fas fa-bars" onClick={handleClick}></button>
         <nav className="header__nav nav">
             <ul className="nav__list">

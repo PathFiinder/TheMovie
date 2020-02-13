@@ -11,6 +11,7 @@ const PopularPageSingleMovie = ({location}) => {
                          apiKey={props.apiKey} 
                          movieId={props.movieId} 
                          posterPath={props.posterPath}
+                         backDropPath={props.backDropPath}
                          releaseDate={props.releaseDate} 
                          voteAverage={props.voteAverage}
                          movieDesc={props.movieDesc}

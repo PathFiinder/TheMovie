@@ -6,6 +6,7 @@ const PopularPageSingleItem = (props) => {
                               aboutProps: {"movieId": props.id, 
                                            "apiKey": props.apiKey, 
                                            "posterPath": props.posterPath, 
+                                           "backDropPath": props.backPath,
                                            "releaseDate": props.releaseDate, 
                                            "voteAverage": props.voteAverage, 
                                            "movieTitle": props.title, 

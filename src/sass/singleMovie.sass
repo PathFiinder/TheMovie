@@ -5,6 +5,15 @@
     background-size: cover
     overflow: hidden
     position: relative
+    padding-bottom: 20px
+    &:after
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        background-color: rgba(0,0,0,0.6)
+        content: ""
     &__back
         height: 30px
         width: 90px
@@ -14,6 +23,8 @@
         border: none
         background-color: transparent
         margin: 2px 0 0 10px
+        position: relative
+        z-index: 1
         &--icon
             color: white
         &--text
@@ -22,17 +33,28 @@
     &__container
         margin: 20px auto 0 auto 
         width: 90%
-        border: 1px solid white
-        background-color: rgba(0,0,0,0.5)
         display: flex
         flex-direction: row
         color: white
+        position: relative
+        z-index: 1
+        @media (min-width: 568px)
+            width: 420px
+        @media (min-width: 1024px)
+            position: absolute
+            top: 80px
+            left: 100px
         .singleMovie__singleItem
             flex-basis: 50%
             position: relative
             text-align: center
             &--first
                 border-right: 2px solid white
+                @media (min-width: 568px)
+                    flex-basis: 40%
+            &--second
+                @media (min-width: 568px)
+                    flex-grow: 1
             .singleMovie__icon
                 position: absolute
                 top: 50%
@@ -48,6 +70,7 @@
             .singleMovie__releaseDate
                 font-weight: normal
                 font-size: 18px
+                width: 100%
                 &--bold
                     font-weight: bold
     .singleMovie__title
@@ -57,14 +80,48 @@
         font-weight: bold
         margin: 10px auto 0 auto
         width: 90%
+        position: relative
+        z-index: 1
+        @media (min-height: 1024px)
+            font-size: 36px
+        @media (min-width: 1024px)
+            font-size: 38px
+            position: absolute
+            top: 120px
+            left: 100px
+            width: auto
     .singleMovie__describe
         margin: 10px auto 0 auto
         width: 90%
-        background-color: rgba(0,0,0,0.5)
         color: white
         padding: 10px
         text-align: center
         font-size: 14px
+        position: relative
+        z-index: 1
+        @media (min-height: 1024px)
+            font-size: 20px
+        @media (min-width: 1024px)
+            font-size: 22px
+            width: 60%
+            position: absolute
+            top: 180px
+            left: 100px
+            text-align: left
+            max-height: 300px
+    .singleMovie__poster
+        height: 300px
+        width: 250px
+        z-index: 1
+        display: none
+        position: absolute
+        top: 180px
+        right: 50px
+        @media (min-width: 1024px)
+            display: block
+        @media (min-width: 1200px)
+            display: block
+            right: 200px
     .singleMovie__buttonWatch
         border: none
         text-align: center
@@ -77,15 +134,25 @@
         border-radius: 5px
         cursor: pointer
         display: block
+        position: relative
+        z-index: 1
+        @media (min-width: 1024px)
+            position: absolute
+            top: 500px
+            right: 100px
+        @media (min-width: 1200px)
+            display: block
+            right: 250px
     .singleMovie__watchContainer
         display: none
-        height: calc(100vh - 80px)
+        min-height: calc(100vh - 80px)
+        height: 100%
         width: 100%
         background-color: rgba(0,0,0,0.9)
         position: absolute
         top: 0
         left: 0
-        z-index: 1
+        z-index: 2
         &--active
             display: block
         .singleMovie__iframe
@@ -95,6 +162,13 @@
             transform: translate(-50%,-50%)
             height: auto
             width: 95%
+            @media (min-width: 568px)
+                height: 220px
+            @media (min-width: 812px)
+                height: 200px
+            @media (min-height: 1024px), (min-width: 1024px)
+                height: 500px
+                max-width: 900px
         .singleMovie__iframeClose
             height: 40px
             width: 40px

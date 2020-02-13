@@ -29,7 +29,7 @@ class SearchPage extends Component{
     }
 
     render(){
-        const singleResult = this.state.results.map(single => <SearchPageSingleItem key={single.id} posterPath={single.poster_path} movieTitle={single.title !== undefined ? single.title : single.original_name}/>)
+        const singleResult = this.state.results.map(single => <SearchPageSingleItem key={single.id} posterPath={single.poster_path !== null ? single.poster_path : "" } movieTitle={single.title !== undefined ? single.title : single.original_name}/>)
 
         return (  
             <div className="main__searchPage searchPage">
@@ -43,6 +43,7 @@ class SearchPage extends Component{
                         <button className="searchPage__searchButton fas fa-search" onClick={this.handleClickSearchButton}></button>
                     </div>
                 </div>
+                <p className="searchPage__noResult">{this.state.results.length === 0 ? "No results" : ""}</p>
                 <ul className="searchPage__resultsList resultsList">
                     {singleResult}
                 </ul>
