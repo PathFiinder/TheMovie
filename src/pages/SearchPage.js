@@ -18,7 +18,7 @@ class SearchPage extends Component{
     }
 
     handleClickSearchButton = () => {
-        fetch(`http://api.themoviedb.org/3/search/${this.state.activeMovieButton ? "movie" : "tv"}?query=${this.state.inputedValue}&api_key=${this.props.apiKey}`)
+        fetch(`https://api.themoviedb.org/3/search/${this.state.activeMovieButton ? "movie" : "tv"}?query=${this.state.inputedValue}&api_key=${this.props.apiKey}`)
         .then(resp => resp.json())
         .then(data => {
             const resultsArr = [];
