@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TheMovie/static/css/main.a6a882ac.chunk.css",
-    "main.js": "/TheMovie/static/js/main.9b3f772f.chunk.js",
-    "main.js.map": "/TheMovie/static/js/main.9b3f772f.chunk.js.map",
+    "main.js": "/TheMovie/static/js/main.18422833.chunk.js",
+    "main.js.map": "/TheMovie/static/js/main.18422833.chunk.js.map",
     "runtime-main.js": "/TheMovie/static/js/runtime-main.2e280fcb.js",
     "runtime-main.js.map": "/TheMovie/static/js/runtime-main.2e280fcb.js.map",
     "static/js/2.9206302b.chunk.js": "/TheMovie/static/js/2.9206302b.chunk.js",
     "static/js/2.9206302b.chunk.js.map": "/TheMovie/static/js/2.9206302b.chunk.js.map",
     "index.html": "/TheMovie/index.html",
-    "precache-manifest.8fe0596b396ab6198aa1a9bdc88eb418.js": "/TheMovie/precache-manifest.8fe0596b396ab6198aa1a9bdc88eb418.js",
+    "precache-manifest.83f25ceb65b35bc559ddb0ae35f631fa.js": "/TheMovie/precache-manifest.83f25ceb65b35bc559ddb0ae35f631fa.js",
     "service-worker.js": "/TheMovie/service-worker.js",
     "static/css/main.a6a882ac.chunk.css.map": "/TheMovie/static/css/main.a6a882ac.chunk.css.map",
     "static/js/2.9206302b.chunk.js.LICENSE.txt": "/TheMovie/static/js/2.9206302b.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.2e280fcb.js",
     "static/js/2.9206302b.chunk.js",
     "static/css/main.a6a882ac.chunk.css",
-    "static/js/main.9b3f772f.chunk.js"
+    "static/js/main.18422833.chunk.js"
   ]
 }
