@@ -1,5 +1,22 @@
-Live: https://pathfiinder.github.io/TheMovie/
+# TheMovie
 
+App created using React (React Router) and API - "The Movie DB" . The application consists of 4 main components:
+
+1) NEWS -> the component contains information about the newest 20 movies in database. Also user can receive detailed information on the                selected film, watch the trailer and add movie to "My List".
+2) POPULAR -> the component contains information about 20 most popular movies in database. User can receive detailed information on the 
+           selected film and watch trailer.
+3) SEARCH -> the component allows the user to search for the selected movie or series in the database
+4) MY LIST -> the component contains favourites (selected) movie in "NEWS" component and store them in Local Storage.
+
+Tech Work used:
+ - HTML5
+ - CSS3 (SASS)
+ - RWD (Mobile First)
+ - JavaScript
+ - React (React Router)
+ - The movie DB - API - https://www.themoviedb.org/
+
+Live: https://pathfiinder.github.io/TheMovie/
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
